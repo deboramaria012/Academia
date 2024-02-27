@@ -55,6 +55,8 @@ Route::middleware(['autenticacao:aluno'])->group(function (){
 
 
 
+
+
 Route::middleware(['autenticacao:instrutor'])->group(function (){
 
  Route::get('/dashboard/instrutor',[instrutorController::class,'instrutor'])->name('dashboard.instrutor');
@@ -66,11 +68,13 @@ Route::middleware(['autenticacao:instrutor'])->group(function (){
 
 Route::middleware(['autenticacao:administrativo'])->group(function (){
 
-  Route::get('/dashboard/administrador/',[administradorController::class,'index'])->name('dashboard.administrativo');
+  Route::get('/dashboard/administrador',[administradorController::class,'indexFunc'])->name('dashboard.administrativo');
+
+
+
+
+
 });
-
-
-//Rotas para CRUD de Aluno
 
 
 

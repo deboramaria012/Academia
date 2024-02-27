@@ -1,14 +1,13 @@
 
 <link rel="stylesheet" href="{{ asset('assets/css/estilodash.css') }}">
 
-
 <body>
     <main>
         <nav class="main-menu">
             <img class="logo"
                 src="{{ asset('https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/4cfdcb5a-0137-4457-8be1-6e7bd1f29ebb')}}"
                 alt />
-            @if (session('tipoFuncionario') == 'Aluno')
+              @if (session('tipoFuncionario') == 'Aluno')
                 <h1>Aluno<br></h1>
                 <ul>
                     <li class="nav-item active">
@@ -44,7 +43,7 @@
                         <b></b>
                         <a href="#">
                             <i class="fa fa-person-running nav-icon"></i>
-                            <span class="nav-text">Pagamentos</span>
+                            <span class="nav-text">Fit Coach</span>
                         </a>
                     </li>
 
@@ -53,15 +52,7 @@
                         <b></b>
                         <a href="#">
                             <i class="fa fa-sliders nav-icon"></i>
-                            <span class="nav-text">Cronograma</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <b></b>
-                        <b></b>
-                        <a href="#">
-                            <i class="fa fa-sliders nav-icon"></i>
-                            <span class="nav-text">Meus</span>
+                            <span class="nav-text">Minhas Conquistas</span>
                         </a>
                     </li>
 
@@ -89,6 +80,11 @@
                         </a>
                     </li>
 
+                    <h4>Desenvolvedor</h4>
+                    <ul class="drp-sec">
+                    <li><a href="#" title=""><i class="ion-podium"></i>Cadastro de funcionarios</a></li>
+                    </ul>
+
                     <li class="nav-item">
                         <b></b>
                         <b></b>
@@ -112,7 +108,7 @@
                         <b></b>
                         <a href="#">
                             <i class="fa fa-sliders nav-icon"></i>
-                            <span class="nav-text">Cronograma</span>
+                            <span class="nav-text">Cronograma de Treino</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -120,7 +116,7 @@
                         <b></b>
                         <a href="#">
                             <i class="fa fa-sliders nav-icon"></i>
-                            <span class="nav-text">Serviços</span>
+                            <span class="nav-text">Atividades</span>
                         </a>
                     </li>
 
@@ -129,7 +125,15 @@
                         <b></b>
                         <a href="#">
                             <i class="fa fa-sliders nav-icon"></i>
-                            <span class="nav-text">sla</span>
+                            <span class="nav-text">Serviços</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <b></b>
+                        <b></b>
+                        <a href="#">
+                            <i class="fa fa-sliders nav-icon"></i>
+                            <span class="nav-text">Email site</span>
                         </a>
                     </li>
 
@@ -144,6 +148,8 @@
                         </a>
                     </li>
                 </ul>
+
+
             @elseif(session('tipoFuncionario') == 'instrutor')
                 <h1>Funcionário<br></h1>
                 <ul>
@@ -225,8 +231,7 @@
         @endif
 
 
-        <h4></h4>
-        
+
 
         <section class="">
             @yield('conteudo-dash')

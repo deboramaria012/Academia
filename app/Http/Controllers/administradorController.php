@@ -30,7 +30,7 @@ class administradorController extends Controller
 
          // Passando o objeto $aluno para a view
          // dd($aluno);
-         return view('dashboard.administrador.administrador', compact('funcionario'));
+         return view('dashboard.administrador.funcionario.index', compact('funcionario'));
    }
 
 
@@ -45,9 +45,8 @@ class administradorController extends Controller
     $listaFunc = Funcionario::all();
 
 
-    dd($listaFunc);
 
-    return view('dashboard.administrativo.funcionario.index',compact('func','listaFunc'));
+    return view('dashboard.administrador.funcionario.index',compact('func','listaFunc'));
 
 
 }
