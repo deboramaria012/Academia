@@ -53,11 +53,11 @@ class LoginController extends Controller
         // dd($usuario);
 
         $tipoUsuario = $usuario->tipo_usuario;
-        $tipo = null;
+      //  $tipo = null;
         // dd($tipoUsuario);
 
         if($tipoUsuario instanceof Aluno){
-            $tipo = 'aluno';
+           $tipo = 'aluno';
 
             //dd($tipoUsuario);//
 
@@ -71,13 +71,13 @@ class LoginController extends Controller
             ]);
 
 
-            return redirect()->route('dashboard.aluno');
+            return redirect()->route('dashboard.aluno.aluno');
 
 
         }elseif($tipoUsuario instanceof Funcionario){
 
         if($tipoUsuario->tipoFuncionario == 'instrutor'){
-            $tipo = 'instrutor';
+         //   $tipo = 'instrutor';
             session([
                 'id'    =>           $tipoUsuario->idFuncionario,
                 'nome'  =>           $tipoUsuario->nomeFuncionario,
@@ -90,7 +90,7 @@ class LoginController extends Controller
 
 
          }elseif($tipoUsuario->tipoFuncionario == 'administrativo'){
-            $tipo= 'administrativo';
+           // $tipo= 'administrativo';
             session([
                 'id'    =>           $tipoUsuario->idFuncionario,
                 'nome'  =>           $tipoUsuario->nomeFuncionario,

@@ -3,6 +3,7 @@
 use App\Http\Controllers\administradorController;
 use App\Http\Controllers\AlunoController;
 use App\Http\Controllers\ContatoDoController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeDoController;
 use App\Http\Controllers\instrutorController;
 use App\Http\Controllers\LoginController;
@@ -48,21 +49,30 @@ route::post('/login', [LoginController::class, 'autenticar'])->name('login');
 
 Route::middleware(['autenticacao:aluno'])->group(function (){
 
-  Route::get('/dashboard/aluno/aluno',[AlunoController::class,'aluno'])->name('dashboard.aluno');
+
+  Route::get('/dashboard/aluno',[AlunoController::class,'index'])->name('dashboard.aluno.aluno');
 });
 
 
 
 Route::middleware(['autenticacao:instrutor'])->group(function (){
 
- Route::get('/dashboard/instrutor/instrutor',[instrutorController::class,'instrutor'])->name('dashboard.instrutor');
+ Route::get('/dashboard/instrutor',[instrutorController::class,'instrutor'])->name('dashboard.instrutor');
 });
+
+
+//Route::get('/dasboard/administrativo/funcionario',[administrador::class, 'indexFunc'])->name('admin.func.index');
 
 
 Route::middleware(['autenticacao:administrativo'])->group(function (){
 
-  Route::get('/dashboard/administrador/administrador',[administradorController::class,'administrador'])->name('dashboard.administrativo');
+  Route::get('/dashboard/administrador/',[administradorController::class,'index'])->name('dashboard.administrativo');
 });
+
+
+//Rotas para CRUD de Aluno
+
+
 
 Route::get('/contato',[ContatoDoController::class,'index'])->name('contato');
 

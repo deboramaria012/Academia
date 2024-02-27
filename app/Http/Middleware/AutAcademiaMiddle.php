@@ -39,9 +39,10 @@ class AutAcademiaMiddle
                 } elseif ($tipoUsuario instanceof Funcionario){
                     $tipo = $tipoUsuario->tipoFuncionario;
                 }
+
             }
 
-            if($tipo === $tipoUser){
+            if($tipo == $tipoUser){
 
              return $next($request);
 
