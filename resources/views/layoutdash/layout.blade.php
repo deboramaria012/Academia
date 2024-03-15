@@ -1,19 +1,21 @@
 
 <link rel="stylesheet" href="{{ asset('assets/css/estilodash.css') }}">
 
+
+
 <body>
     <main>
         <nav class="main-menu">
             <img class="logo"
                 src="{{ asset('https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/4cfdcb5a-0137-4457-8be1-6e7bd1f29ebb')}}"
                 alt />
-              @if (session('tipoFuncionario') == 'Aluno')
+              @if (session('tipofuncionario') == 'Aluno')
                 <h1>Aluno<br></h1>
                 <ul>
                     <li class="nav-item active">
                         <b></b>
                         <b></b>
-                        <a href="#">
+                        <a href="{{ route('admin.aluno.index') }}">
                             <i class="fa-solid fa-user nav-icon"></i>
                             {{-- <i class="fa fa-house "></i> --}}
                             <span class="nav-text">Perfil</span>
@@ -68,6 +70,7 @@
                     </li>
                 </ul>
             @elseif(session('tipoFuncionario') == 'administrativo')
+            <nav class="main-menu">
                 <h1>administrativo<br></h1>
                 <ul>
                     <li class="nav-item active">
@@ -82,7 +85,7 @@
 
                     <h4>Desenvolvedor</h4>
                     <ul class="drp-sec">
-                    <li><a href="#" title=""><i class="ion-podium"></i>Cadastro de funcionarios</a></li>
+                    <li><a href="{{ route('admin.func.index') }}" title=""><i class="ion-podium"></i>Cadastro de funcionarios</a></li>
                     </ul>
 
                     <li class="nav-item">
@@ -230,12 +233,13 @@
         </nav>
         @endif
 
-
-
+    
 
         <section class="">
             @yield('conteudo-dash')
         </section>
+
+
 
     </main>
 

@@ -59,7 +59,7 @@ class LoginController extends Controller
         if($tipoUsuario instanceof Aluno){
            $tipo = 'aluno';
 
-            //dd($tipoUsuario);//
+           // dd($tipoUsuario);//
 
 
             session([
@@ -71,7 +71,7 @@ class LoginController extends Controller
             ]);
 
 
-            return redirect()->route('dashboard.aluno.aluno');
+            return redirect()->route('admin.aluno.index');
 
 
         }elseif($tipoUsuario instanceof Funcionario){
@@ -86,7 +86,7 @@ class LoginController extends Controller
 
             ]);
 
-            return redirect()->route('dashboard.instrutor');
+            return redirect()->route('dashboard.administrador.funcionario');
 
 
          }elseif($tipoUsuario->tipoFuncionario == 'administrativo'){
