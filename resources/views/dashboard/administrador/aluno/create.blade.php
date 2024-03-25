@@ -3,41 +3,61 @@
 @section('conteudo-dash')
 
 <style>
-    /* Estilos para o formulário de cadastro de alunos */
 
+
+/* Container style */
 .painel-content {
-    margin: 20px;
-}
-
-.filter-items {
-    background-color: #f9f9f9;
+    max-width: 800px;
+    margin: 0 auto;
     padding: 20px;
-    border-radius: 5px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.form-wrp {
-    margin-bottom: 20px;
+/* Form label style */
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
-.row {
-    margin-bottom: 10px;
+/* Input style */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="datetime-local"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 }
 
-.brd-rd5 {
+/* Error message style */
+.invalid-feedback {
+    color: red;
+    font-size: 12px;
+}
+
+/* Submit button style */
+button {
+    display: block;
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
     border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.invalid-feedback {
-    display: block;
-    color: red;
-    margin-top: 5px;
+button:hover {
+    background-color: #45a049;
 }
 
-/* Estilos adicionais conforme necessário */
 
 </style>
 
@@ -47,154 +67,121 @@
     <div class="pr-tp-inr">
      <h4>CADASTRO DE ALUNOS</h4>
      <h6>Usuario:</h6>
-     <span>Nome:<strong>{{ $func->nome_funcionario }}</strong> | Cargo:
-      <strong>{{ $func->cargo_funcionario }}</strong> |Tipo:
-       <strong>{{ $func->tipo_funcionario}}</strong></span>
+     <span>Nome:<strong>{{ $alunos->nome_funcionario }}</strong> | Cargo:
+      <strong>{{ $alunos->cargo_funcionario }}</strong> |Tipo:
+       <strong>{{ $alunos->tipo_funcionario}}</strong></span>
     </div>
 </div>
 <!-- topo da página -->
 </style>
 
-<<div class="painel-content">
+<div class="painel-content">
     <div class="filter-items">
         <div class="row grid wrap mrg20">
-            <form class="form-wrp" action="{{ route('admin.aluno.index') }}" method="POST" enctype="multipart/form-data">
+            <form class="form-wrp" action="{{ route('dashboard.administrador.aluno.index') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
-                <div class="row mrg-20">
-                    <div class="col-md-6 col-sm-6 col-lg-6">
-                        <input class="brd-rd5 @error('nomeAlunoo') is-invalid @enderror" type="text" id="nomeAlunoo" name="nomeAlunoo" value="{{ old('nomeAlunoo') }}" required placeholder="Nome do Aluno">
-                        @error('nomeAlunoo')
-                            <span class="invalid-feedback">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-lg-6">
-                        <input class="brd-rd5 @error('emailAlunoo') is-invalid @enderror" type="email" id="emailAluno" name="emailAluno" value="{{ old('emailAlunoo') }}" required placeholder="E-mail do Aluno">
-                        @error('emailAlunoo')
-                            <span class="invalid-feedback">{{ $message }}</span>
-                        @enderror
-                    </div>
-                </div>
-
-                <div class="row mrg-20">
-                    <div class="col-md-6 col-sm-6 col-lg-6">
-                        <input class="brd-rd5 @error('dataNascAluno') is-invalid @enderror" type="text" id="dataNascAlunoo" name="dataNascAlunoo" value="{{ old('dataNascAlunoo') }}" required placeholder="Data de Nascimento do Aluno">
-                        @error('dataNascAlunoo')
-                            <span class="invalid-feedback">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-lg-6">
-                        <input class="brd-rd5 @error('foneAlunoo') is-invalid @enderror" type="text" id="foneAlunoo" name="foneAluno" value="{{ old('foneAlunoo') }}" required placeholder="Telefone do Aluno">
-                        @error('foneAlunoo')
-                            <span class="invalid-feedback">{{ $message }}</span>
-                        @enderror
-                    </div>
-                </div>
-
-                <div class="row mrg-20">
-                    <div class="col-md-6 col-sm-6 col-lg-6">
-                        <input class="brd-rd5 @error('endAlunoo') is-invalid @enderror" type="text" id="endAlunoo" name="endAlunoo" value="{{ old('endAlunoo') }}" required placeholder="Endereço do Aluno">
-                        @error('endAlunoo')
-                            <span class="invalid-feedback">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-lg-6">
-                        <input class="brd-rd5 @error('cidadeAlunoo') is-invalid @enderror" type="text" id="cidadeAlunoo" name="cidadeAlunoo" value="{{ old('cidadeAlunoo') }}" required placeholder="Cidade do Aluno">
-                        @error('cidadeAlunoo')
-                            <span class="invalid-feedback">{{ $message }}</span>
-                        @enderror
-                    </div>
-                </div>
-
-                <div class="row mrg-20">
-                    <div class="col-md-6 col-sm-6 col-lg-6">
-                        <input class="brd-rd5 @error('estadoAlunoo') is-invalid @enderror" type="text" id="estadoAlunoo" name="estadoAlunoo" value="{{ old('estadoAlunoo') }}" required placeholder="Estado do Aluno">
-                        @error('estadoAlunoo')
-                            <span class="invalid-feedback">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-lg-6">
-                        <input class="brd-rd5 @error('cepAlunoo') is-invalid @enderror" type="text" id="cepAlunoo" name="cepAlunoo" value="{{ old('cepAlunoo') }}" required placeholder="CEP do Aluno">
-                        @error('cepAlunoo')
-                            <span class="invalid-feedback">{{ $message }}</span>
-                        @enderror
-                    </div>
-                </div>
-
-                <div class="row mrg-20">
-                    <div class="col-md-6 col-sm-6 col-lg-6">
-                        <input class="brd-rd5 @error('dataInscricaoAluno') is-invalid @enderror" type="text" id="dataInscricaoAluno" name="dataInscricaoAluno" value="{{ old('dataInscricaoAluno') }}" required placeholder="Data de Inscrição do Aluno">
-                        @error('dataInscricaoAluno')
-                            <span class="invalid-feedback">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-lg-6">
-                        <input class="brd-rd5 @error('alturaAlunoo') is-invalid @enderror" type="text" id="alturaAlunoo" name="alturaAlunoo" value="{{ old('alturaAlunoo') }}" required placeholder="Altura do Aluno">
-                        @error('alturaAlunoo')
-                            <span class="invalid-feedback">{{ $message }}</span>
-                        @enderror
-                    </div>
-                </div>
-
-                <div class="row mrg-20">
-                    <div class="col-md-6 col-sm-6 col-lg-6">
-                        <input class="brd-rd5 @error('pesoAlunoo') is-invalid @enderror" type="text" id="pesoAlunoo" name="pesoAlunoo" value="{{ old('pesoAlunoo') }}" required placeholder="Peso do Aluno">
-                        @error('pesoAlunoo')
-                            <span class="invalid-feedback">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-lg-6">
-                        <input class="brd-rd5 @error('objetivoAlunoo') is-invalid @enderror" type="text" id="objetivoAlunoo" name="objetivoAlunoo" value="{{ old('objetivoAlunoo') }}" required placeholder="Objetivo do Aluno">
-                        @error('objetivoAlunoo')
-                            <span class="invalid-feedback">{{ $message }}</span>
-                        @enderror
-                    </div>
-                </div>
-
-                <div class="row mrg-20">
-                    <div class="col-md-6 col-sm-6 col-lg-6">
-                        <input class="brd-rd5 @error('planoAlunoo') is-invalid @enderror" type="text" id="planoAlunoo" name="planoAlunoo" value="{{ old('planoAlunoo') }}" required placeholder="Plano do Aluno">
-                        @error('planoAlunoo')
-                            <span class="invalid-feedback">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-lg-6">
-                        <input class="brd-rd5 @error('statusAlunoo') is-invalid @enderror" type="text" id="statusAlunoo" name="statusAlunoo" value="{{ old('statusAlunoo') }}" required placeholder="Status do Aluno">
-                        @error('statusAlunoo')
-                            <span class="invalid-feedback">{{ $message }}</span>
-                        @enderror
-                    </div>
-                </div>
-
-                <div class="col-md-12 col-sm-12 col-lg-12">
-                 <div class="file-upload-box">
-                <strong>Carregar Foto:</strong>
-                <div class="file-box" id="fotoBox">
-                <div class="foto-placeholder" id="fotoPlaceholder">
-                    <label for="fotoAlunoo" class="blue-bg brd-rds">
-                    <img src="{{ asset('') }}" alt="Foto do Aluno">
-                    </label>
-                    <input type="file" id="fotoAlunoo" name="fotoAlunoo"
-                     onchange="exibirFoto()" style="display:none;">
-                </div>
-                </div>
-              </div>
-                </div>
-
-                <div id="fotoPreview" style="display: none;">
-                    <img id="fotoPreviewImg" src="#" alt="Foto do Aluno">
-                </div>
-                @error('fotoAlunoo')
+                <label for="nomeAlunoo">Nome:</label>
+                <input type="text" id="nomeAlunoo" name="nomeAlunoo" required maxlength="100"><br>
+                @error ('nomeAlunoo')
                 <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
 
-        </div>
-    </div>
-</div>
-        <div class="col-md-12 col-sm-12 col-lg-12">
-        <button class="green-bg brd-rd5" type="submit">
-         <i class="fa fa-paper-plane"></i>Cadastro do Aluno</button>
-        </div>
+                <label for="emailAlunoo">Email:</label>
+                <input type="email" id="emailAlunoo" name="emailAlunoo" required maxlength="100"><br>
+                @error ('emailAlunoo')
+                <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+
+                <label for="dataNascAlunoo">Data de Nascimento:</label>
+                <input type="date" id="dataNascAlunoo" name="dataNascAlunoo" required><br>
+                @error ('dataNascAlunoo')
+                <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+
+                <label for="telefoneAlunoo">Telefone:</label>
+                <input type="tel" id="telefoneAlunoo" name="telefoneAlunoo" required maxlength="20"><br>
+                @error ('telefoneAlunoo')
+                <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+
+                <label for="enderecoAlunoo">Endereço Aluno:</label>
+                <input type="text" id="enderecoAlunoo" name="enderecoAlunoo" required maxlength="100"><br>
+                @error ('enderecoAlunoo')
+                <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+
+                <label for="cidadeAlunoo">Cidade Aluno:</label>
+                <input type="text" id="cidadeAlunoo" name="cidadeAlunoo" required maxlength="100"><br>
+                @error ('cidadeAlunoo')
+                <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+
+                <label for="estadoAlunoo">Estado:</label>
+                <input type="text" id="estadoAlunoo" name="estadoAlunoo" required maxlength="100"><br>
+                @error ('estadoAlunoo')
+                <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+
+                <label for="cepAlunoo">CEP:</label>
+                <input type="text" id="cepAlunoo" name="cepAlunoo" required maxlength="10"><br>
+                @error ('cepAlunoo')
+                <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+
+                <label for="dataInscricaoAluno">Data de Inscricao Aluno:</label>
+                <input type="date" id="dataInscricaoAluno" name="dataInscricaoAluno" required><br>
+                @error ('dataInscricaoAluno')
+                <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+
+                <label for="alturaAlunoo">Altura Aluno:</label>
+                <input type="text" id="alturaAlunoo" name="alturaAlunoo" required maxlength="50"><br>
+                @error ('alturaAlunoo')
+                <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+
+                <label for="pesoAlunoo">Peso Aluno:</label>
+                <input type="text" id="pesoAlunoo" name="pesoAlunoo" required maxlength="100"><br>
+                @error ('pesoAlunoo')
+                <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+
+                <label for="objetivoAlunoo">Objetivo Aluno:</label>
+                <input type="text" id="objetivoAlunoo" name="objetivoAlunoo" required maxlength="100"><br>
+                @error ('objetivoAlunoo')
+                <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+
+                <label for="planoAlunoo">plano:</label>
+                <input type="text" id="planoAlunoo" name="planoAlunoo" required maxlength="20"><br>
+                @error ('planoAlunoo')
+                <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+
+
+                <label for="statusAlunoo">status:</label>
+                <input type="text" id="statusAlunoo" name="statusAlunoo" required maxlength="20"><br>
+                @error ('statusAlunoo')
+                <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+
+                <label for="criado_em_Alunoo">Criado Em:</label>
+                <input type="datetime-local" id="criado_em_Alunoo" name="criado_em_Alunoo" required><br>
+                @error ('criado_em_Alunoo')
+                <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+
+                <label for="atualizado_em_Alunoo">Atualizado Em:</label>
+                <input type="datetime-local" id="atualizado_em_Alunoo" name="atualizado_em_Alunoo" required><br>
+                @error ('atualizado_em_Alunoo')
+                <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+
+              <div class="col-md-12 col-sm-12 col-lg-12">
+             <button class="green-bg brd-rd5" type="submit">
+              <i class="fa fa-paper-plane"></i>Cadastro do Aluno</button>
+         </div>
 
 </form>
 

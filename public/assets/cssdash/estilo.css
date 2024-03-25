@@ -1,0 +1,189 @@
+.title-area h3.sub-title, .title-area h2.sec-title {
+    color: #1C1C1C;
+}
+
+.pricing-card {
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: transparent;
+    box-shadow: none;
+    border: 1px solid #e1e1e1;
+    margin: 0 10px;
+    margin-bottom: 30px;
+}
+
+.pricing-area {
+    padding: 60px 0;
+}
+
+
+.pricing-card_bg img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.pricing-card_icon {
+    text-align: center;
+}
+
+
+.pricing-card_icon img {
+    display: inline-block;
+}
+
+.pricing-card_icon img {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+    margin: 0 auto;
+}
+
+
+.checklist li {
+    color: #555555;
+    margin-bottom: 8px;
+}
+
+.checklist i {
+    margin-right: 8px;
+}
+
+.btn.style2 {
+    background-color: #1C1C1C;
+    color: #FFFFFF;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+
+.btn.style2:hover {
+    background-color: #000000;
+}
+
+
+.cta-area {
+    background-size: cover;
+    background-position: center;
+    padding: 80px 0;
+}
+
+
+.cta-wrap .sec-title {
+    color: #FFFFFF;
+}
+
+.btn.style2 {
+    background-color: #1C1C1C;
+    color: #FFFFFF;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn.style2:hover {
+    background-color: #000000;
+}
+
+.blog-area {
+    background-color: #FFFFFF;
+    padding: 80px 0;
+}
+
+
+.blog-area .title-area .sub-title, .blog-area .title-area .sec-title {
+    color: #1C1C1C;
+}
+
+
+.blog-card {
+    margin-bottom: 30px;
+}
+
+
+.blog-title {
+    color: #FFFFFF;
+}
+
+
+.blog-text {
+    color: #FFFFFF;
+}
+
+.blog-card {
+    margin-bottom: 20px;
+}
+
+.blog-content {
+    padding: 20px;
+}
+
+
+.blog-title, .blog-text {
+    text-align: left;
+}
+
+.service-area-2 {
+    background-color: #f9f9f9;
+    padding: 80px 0;
+}
+
+.title-area .sub-title {
+    color: #48c9b0;
+}
+
+.title-area .sec-title {
+    color: #1C1C1C;
+}
+
+.service-card {
+    background-color: #000000;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.9s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+.service-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.service-card_icon img {
+    width: 50px;
+    height: 50px;
+}
+
+.service-card_title {
+    color: #1C1C1C;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+
+.service-card_text {
+    color: #555555;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.link-btn {
+    color: #48c9b0;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+.link-btn:hover {
+    color: #1C1C1C;
+}
+
+
+
+

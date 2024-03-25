@@ -11,6 +11,9 @@ class Aluno extends Model
     protected $table = 'alunos';
     protected $primaryKey = 'idAlunoo';
 
+    const CREATED_AT = 'criado_em_Alunoo';
+    const UPDATED_AT = 'atualizado_em_Alunoo';
+
     public function usuario(){
         return $this->morphOne(Usuario::class, 'tipo_usuario');
     }

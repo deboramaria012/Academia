@@ -15,43 +15,44 @@
        <strong>{{ $func->tipo_funcionario}}</strong></span>
     </div>
 </div>
+
+
 <!-- topo da página -->
 
 
 <div class="widget pad50-65">
-    <a href="{{ route('admin.aluno.create') }}" class="btn btn-success btnAluno">Novo Aluno</a>
+    <a href="{{ route('dashboard.administrador.funcionario.cad') }}" class="btn btn-success btnAluno">Novo Funcionario</a>
     <table class="table">
     <thead class="thead-inverse">
      <tr>
-         <th>Foto</th>
          <th>Nome</th>
          <th>Email</th>
-         <th>Fone</th>
-         <th>Atualizar</th>
-         <th>Desativar</th>
+         <th>tipofuncionario</th>
         </tr>
         </thead>
     <tbody>
         @foreach($listaFunc as $func)
-        <tr class="layoutTd">
-        <td><img src="{{ asset('dash/imagem/') . $func->foto_funcionario}}"  alt="Foto do Aluno" style="width: 100px;"></td>
+        <td>
          <td>{{ $func->nomefuncionario }}</td>
          <td>{{ $func->emailfuncionario }}</td>
-         <td>{{ $func->fonefuncionario }}</td>
-        <td><a href="{{ route('admin.funcionario.edit', $func->idFuncionario) }}"
-            class="btn btn-primary"></a></td>
+         <td>{{ $func->telefonefuncionario }}</td>
+         <td>{{ $func->tipoFuncionario }}</td>
+         <td>{{ $func->statusFuncionario }}</td>
+        <td><a href="{{ route('dashboard.administrador.funcionario.edit', $func->idFuncionario) }}" class="btn btn-primary">Editar</a></td>
             <td>
-                <form action="{{ route('admin.funcionario.desativar', $func->idFuncionario) }}" method="POST"
-                 style="display: inline;">
+                <form action="{{ route('dashboard.administrador.funcionario.desativar', $func->idFuncionario) }}" method="POST">
                  @csrf
-                 @method('DELETE')
-                 <button type="submit" class="btn btn-danger">Excluir</button>
+                 @method('PUT')
+                 <button type="submit" onclick="return confirm ('Quer mesmo desativar o funcionario?')" class="btn btn-danger">Excluir</button>
                 </form>
             </td>
         </tr>
+
     @endforeach
     </tbody>
+
     </table>
+
     </div>
 
 

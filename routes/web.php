@@ -50,7 +50,7 @@ route::post('/login', [LoginController::class, 'autenticar'])->name('login');
 Route::middleware(['autenticacao:aluno'])->group(function (){
 
 
- //Route::get('/dashboard/administrador/aluno',[AlunoController::class,'index'])->name('dashboard.aluno.aluno');
+// Route::get('/dashboard/administrador/aluno',[AlunoController::class,'index'])->name('dashboard.aluno.aluno');
 
 
 
@@ -72,23 +72,37 @@ Route::middleware(['autenticacao:administrativo'])->group(function (){
 
 //Rotas para CRUD de Aluno
 
-Route::get('/dashboard/administrador/aluno',[administradorController::class,'indexAluno'])->name('admin.aluno.index'); // Lista todos os alunos.
-Route::get('/dashboard/administrador/aluno/create',[administradorController::class,'createAluno'])->name('admin.aluno.create');//Exibe o formulario de cadastro do aluno
-Route::post('/dashboard/administrador/aluno',[administradorController::class,'cadAluno'])->name('admin.aluno.cad');//Processa o formulario de edição de aluno.
-Route::get('/dashboard/administrativo/aluno/{id}/edit',[administradorController::class,'editAluno'])->name('admin.aluno.edit');//Exibe o formulario de ediçao de aluno.
-Route::put('/dashboard/administrativo/aluno/{id}',[administradorController::class,'updateAluno'])->name('admin.aluno.update');
-Route::put('/dashboard/administrativo/aluno/{id}/desativar',[administradorController::class,'desativarAluno'])->name('admin.aluno.desativar');//Desativa o aluno.
+Route::get('/dashboard/administrador/aluno',[administradorController::class,'indexAluno'])->name('dashboard.administrador.aluno.index'); // Lista todos os alunos.
+
+Route::get('/dashboard/administrador/aluno/create',[administradorController::class,'createAluno'])->name('dashboard.administrador.aluno.create');//Exibe o formulario de cadastro do aluno
+
+Route::post('/dashboard/administrador/aluno',[administradorController::class,'cadAluno'])->name('dashboard.administrador.aluno.cad');//Processa o formulario de edição de aluno.
+
+Route::get('/dashboard/administrativo/aluno/{id}/edit',[administradorController::class,'editAluno'])->name('dashboard.administrador.aluno.edit');//Exibe o formulario de ediçao de aluno.
+
+Route::put('/dashboard/administrativo/aluno/{id}',[administradorController::class,'updateAluno'])->name('dashboard.administrador.aluno.update');
+
+Route::put('/dashboard/administrativo/aluno/{id}/desativar',[administradorController::class,'desativarAluno'])->name('dashboard.administrador.aluno.desativar');//Desativa o aluno.
 
 
 
 //Rotas para o CRUD de Funcionario
 
-Route::get('/dashboard/administrador/funcionario', [administradorController::class, 'indexFunc'])->name('admin.func.index');
-Route::get('/dashboard/administrativo/funcionario/create',[administradorController::class,'createfuncionario'])->name('admin.funcionario.create');//Exibe o formulario de cadastro do funcionario
-Route::post('/dashboard/administrativo/funcionario',[administradorController::class,'cadfuncionario'])->name('admin.funcionario.cad');//Processa o formulario de cadastro do funcionario.
-Route::get('/dashboard/administrativo/funcionario/{id}/edit',[administradorController::class,'editfuncionario'])->name('admin.funcionario.edit');//Exibe o formulario de ediçao de funcionario.
-Route::put('/dashboard/adminstrativo/funcionario/{id}',[administradorController:: class,'updatefuncionario'])->name('admin.funcionario.update');//Atualiza os dados do funcionario.
-Route::put('/dashboard/administrativo/funcionario/{id}/desativar',[administradorController::class,'desativarfuncionario'])->name('admin.funcionario.desativar');//Desativa o funcionario.
+Route::get('/dashboard/administrativo/funcionario', [administradorController::class, 'indexFunc'])->name('dashboard.administrador.funcionario.index');
+
+
+
+Route::get('/dashboard/administrativo/funcionario/create',[administradorController::class,'createfunc'])->name('dashboard.administrador.funcionario.create');//Exibe o formulario de cadastro do funcionario
+
+Route::post('/dashboard/administrativo/funcionario',[administradorController::class,'cadFuncionario'])->name('dashboard.administrador.funcionario.cad');//Processa o formulario de cadastro do funcionario.
+
+
+
+Route::get('/dashboard/administrativo/funcionario/{id}/edit', [administradorController::class, 'editFunc'])->name('dashboard.administrador.funcionario.edit');
+
+Route::put('/dashboard/adminstrativo/funcionario/{id}', [administradorController:: class, 'updatefunc'])->name('dashboard.administrador.funcionario.update');//Atualiza os dados do funcionario.
+
+Route::put('/dashboard/administrativo/funcionario/{id}/desativar',[administradorController::class,'desativarfuncionario'])->name('dashboard.administrador.funcionario.desativar');//Desativa o funcionario.
 
 
 
